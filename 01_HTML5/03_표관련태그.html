@@ -1,7 +1,24 @@
 <!DOCTYPE html>
 <html>
     <head>
-    <title>표 관련 태그</title>
+        <title>표 관련 태그</title>
+        <style>
+            /* css 영역에서의 주석 */
+            thead {
+                background-color: skyblue;
+                color: white;
+            }
+            tfoot {
+                background-color: greenyellow;
+                color: green;
+            }
+            #tt {
+                background-color: lightgray;
+            }
+            button {
+                background-color: pink;
+            }
+        </style>
 
     </head>
 
@@ -106,31 +123,38 @@
 
     <!-- 5행3열 -->
     <table border="1">
-        <tr>
-            <th>이름</th>
-            <th>나이</th>
-            <th>주소</th>
-        </tr>
-        <tr>
-            <td>차은우</td>
-            <td>23</td>
-            <td>서울</td>
-        </tr>
-        <tr>
-            <td>주지훈</td>
-            <td>30</td>
-            <td>부산</td>
-        </tr>
-        <tr>
-            <td>아이유</td>
-            <td>22</td>
-            <td>광주</td>
+        <thead>
+            <tr>
+                <th>이름</th>
+                <th>나이</th>
+                <th>주소</th>
+            </tr>
+        </thead>
+
+        <tbody id="tt">
+            <tr>
+                <td>차은우</td>
+                <td>23</td>
+                <td><button>서울</button></td>
+            </tr>
+            <tr>
+                <td>주지훈</td>
+                <td>30</td>
+                <td><button>부산</button></td>
+            </tr>
+            <tr>
+                <td>아이유</td>
+                <td>22</td>
+                <td><button>광주</button></td>
+        </tbody>
+        
+        <tfoot>
         </tr>
         <tr>
             <th colspan="2">총인원</th>
             <td>3명</td>
-            
         </tr>
+        </tfoot>
 
     </table>
 
