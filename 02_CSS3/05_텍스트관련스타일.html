@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>텍스트 관련 스타일</title>
+  <style>
+    #c{
+      color:red; /*네모클릭하면 색상 지정 가능*/
+      color: #ff8400; /*rgb 각 값의 최대는 255*/
+      color: rgb(60,205,70);
+      color: rgba(60, 223, 79, 0.7);
+      color: hsl(200, 50%, 50%); /*h : 색상값(0~360), s : 채도(%), l : 명도(%)*/
+      color: hsla(200, 50%, 50%, 0.8);
+    }
+
+    #td1{text-decoration: underline;}
+    #td2{text-decoration: line-through;}
+    #td3{text-decoration: overline;}
+    #td4{text-decoration: none;}
+
+    #tt1{text-transform: uppercase;}
+    #tt2{text-transform: lowercase;}
+    #tt3{text-transform: capitalize;} /* 공백을 기준으로 한 단어로써 인식 : 단어의 첫글자만 대문자로*/
+  
+    .shadow{
+      font-size: 50px;
+      font-size: 900;
+    }
+
+    #ts1{
+      color: orangered;
+      text-shadow: 5px 5px; /*번짐정도 생략시 기본적으로는 선명한 그림자, 색상 생략시 글자색깔*/
+      text-shadow: 5px -5px 5px yellow;
+    }
+
+    #ts2{
+      color: white;
+      text-shadow: 0px 0px 10px yellowgreen;
+    }
+
+    #ts3{
+      text-shadow: 0px 0px 4px gray, 0px -5px 4px yellow, 0px -10px 8px orange, 0px -15px orangered, 0px -22px 20px red;
+    }
+  </style>
+</head>
+<body>
+  
+</body>
+</html>
