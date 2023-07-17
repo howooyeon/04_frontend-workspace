@@ -28,7 +28,7 @@
       width: 70%; /*가변길이*/
       height: 800px; /*고정길이*/
 
-      border-image: url(resources/image/bgsample.PNG);
+      background-image: url(resources/image/bgsample.PNG);
       background-repeat: repeat; /*기본값*/
       background-repeat: repeat-x;
       background-repeat: repeat-y;
@@ -67,8 +67,24 @@
     }
   </pre>
 
-  <div class="div-test" id="div1">
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium natus quia voluptatem iste, quidem tenetur quibusdam dolores non dolorem ex a harum alias est velit, repellendus odio fugiat optio ea.</div>
+  <div class="div-test" id="div1">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium natus quia voluptatem iste, quidem tenetur quibusdam dolores non dolorem ex a harum alias est velit, repellendus odio fugiat optio ea.</div>
+  <div class="div-test" id="div2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit modi, quas sapiente voluptatum perspiciatis nemo veritatis eum ratione. Velit, harum? In facere nihil maiores aperiam soluta esse voluptas fuga hic.</div>
+  <div class="div-test" id="div3">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga earum in asperiores? Optio rerum voluptatem quae commodi similique eum possimus architecto eius officia minus, explicabo, impedit labore dolores sint quia.</div>
 
+  <hr>
+
+  <h3>배경 이미지 테스트</h3>
+  <pre>
+    선택지 {
+      background-image : url("이미지 경로");
+      background-repeat | repeat-x | repeat-y | no-repeat;
+      background-size : auto | contain | cover | px px | % %;
+      background-position : 좌/우/가운데 위/아래/가운데 | px px | % %;
+      background-attachment : scroll | fixed;
+    }
+  </pre>
+
+  <!-- #test하면 기본적으로 div -->
+  <div id="test"></div>
 </body>
 </html>
