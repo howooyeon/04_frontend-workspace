@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* header, content, footer의 공통점 : 가로길이 모두 동일 */
+        div{
+            border: 1px solid red; box-sizing: border-box;
+        }
+        .wrap{
+            width: 1000px;
+            height: 800;
+            margin: auto;
+        }
+        .wrap>div{
+            width: 100%;
+           
+        }
+        #header, #footer{
+            height: 20%;
+        }
+        #content{
+            height: 60%;
+        }
+        /* h1, h2의 공통적인 특성? 세로길이 모두 동일! => 부모의 100% */
+        #header>div{
+            height: 100%;
+            float: left;
+        }
+
+        #header_1{
+            width: 30%;
+        }
+        
+        #header_2{
+            width: 70%;
+        }
+
+        /* c1, c2, c3의 공통적인 특성? 세로길이 모두 동일! => 부모 100% */
+        #content>div{
+            height: 100%;
+            float: left;
+        }
+
+        #content_1, #content_3{
+            width: 20%;
+        }
+
+        #content_2{
+            width: 60%;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div id="header">
+            <div id="header_1"></div>
+            <div id="header_2"></div>
+           
+        </div>
+        <div id="content">
+            <div id="content_1"></div>
+            <div id="content_2"></div>
+            <div id="content_3"></div>
+            
+        </div>
+        <div id="footer"></div>
+    </div>
+    
+</body>
+</html>
