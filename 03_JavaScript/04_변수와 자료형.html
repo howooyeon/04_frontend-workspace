@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>변수와 자료형</title>
+</head>
+<body>
+    <h1>변수와 자룡형</h1>
+    <h2>변수 선언시 var뿐만 아니라 let, const 이용해서 선언 가능</h2>
+
+    <!-- 버전차이. 단점이 있어서 보완하려고 나옴 -->
+
+    <h3>* var, let, const의 차이점</h3>
+
+    <h4>1) 변수 선언 방법</h4>
+    <button onclick="diffDeclare();">클릭</button>
+
+    <script>
+        function diffDeclare(){
+
+            // 1) var는 중복선언 가능(단점), 재할당 가능
+            var userId = "user01";
+            console.log(userId);
+            
+            var userId = "user02";
+            console.log(userId);
+
+            userId = "user03"; // 재할당
+            console.log(userId)
+
+            console.log("--------------------")
+            // ---------------------------------------------
+            // 2) let은 중복 선언 불가능, 재할당 가능
+            let userPwd = "pass01";
+            console.log(userPwd)
+
+            // vscode, js 버전 업그레이드 되면서 오류 보여줌
+            // let userPwd = "pass02";
+            // console.log(userPwd)
+
+            userPwd = "pass02"; // 재할당
+            console.log(userPwd)
+
+            // ---------------------------------------------
+
+            // 3) const는 중복선언 불가능, 재할당 불가능 (상수같은 개념 == 한번 초기화된 값 변경 불가)
+            const userName = "차은우";
+            console.log(userName)
+
+            // const userName = "주지훈";
+            // console.log(userName)
+
+            userName = "이제훈"
+            console.log(userName)
+
+        }
+    </script>
+
+</body>
+</html>
