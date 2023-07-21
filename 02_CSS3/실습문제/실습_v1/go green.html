@@ -24,10 +24,8 @@
         }
 
         #header_2>img{
-          margin-top: 7%;
-          top : 0;
-          bottom: 0; /*네개 다 극단으로 가려고 해서 결국 가운데 배치*/
-          right: 0;
+          margin-top: 10%;
+          margin-left: 5%;
         }
 
         #navi{
@@ -69,9 +67,10 @@
           float: left;
         }
        
-        #content_3{width: 25%;}
+        #content_3{width: 23%; margin-top: 10px;}
         #content_3_1{
           height: 25%;
+          display: flex;
         }
 
         #content_3_2{
@@ -83,7 +82,8 @@
         }
 
         #content_3_3{
-          height: 30%;
+          width: 90%;
+          height: 50%;
         }
 
         #content_2>div>img{
@@ -102,10 +102,34 @@
         }
 
         #idnpw{
-          margin-top: 10%;
+          width: 75%;
+          box-sizing: border-box;
+          height: 40%;
+
+        }
+        #idnpw>input{
+          width: 90%;
+          box-sizing: border-box;
+
+        }
+
+        #login_btn{
+          width: 25%;
+          float: left;
+          box-sizing: border-box;
+        }
+        #login{
+          width: 100%;
+          height: 100%;
         }
         
-        
+        #login_form_etc{
+          text-align: center;
+          margin-bottom: 5%;
+          font-size: 13px;
+        }
+     
+      
 
 
     </style>
@@ -151,20 +175,37 @@
                 <div>사라지는 북극곰들</div>
               </div>
             </div>
+
             <div id="content_3">
-              <div id="content_3_1">
-                <div id="idnpw">
-                  <input type="text" id="userId" placeholder="ID를 입력하세요">
-                  <input type="password" id="password" placeholder="PW를 입력하세요">
-                  <input type="submit" id="login" value="로그인">
-                </div>
-              </div>
-              <div id="content_3_2">
-                <img src="image/right_img.jpg" alt="">
-              </div>
-              <div id="content_3_3">
-                <img src="image/me_chat.jpg" alt="">
-              </div>
+              <form action="">
+
+                <div id="content_3_1">
+
+                  <div id="idnpw">
+                    <input type="text" id="userId" placeholder="ID를 입력하세요">
+                    <input type="password" id="password" placeholder="PW를 입력하세요">
+                  </div>
+
+                  <div id="login_btn">
+                    <input type="submit" name="login" value="로그인" style="width: 100%; height: 100%; text-align: center;">
+                  </div>
+               
+                </div>  
+             </form>
+
+              <div id="login_form_etc">
+                <a href="#">회원가입</a> &nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="#">ID/PW 찾기</a>
+             </div>
+
+              
+               <div id="content_3_2">
+                 <img src="image/right_img.jpg" alt="">
+               </div>
+
+               <div id="content_3_3">
+                 <img src="image/me_chat.jpg" alt="">
+               </div>
             </div>
         </div>
         <div id="footer">
