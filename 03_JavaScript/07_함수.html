@@ -54,13 +54,40 @@
     <script>
        const btn = document.getElementById("btn")
        
-       btn.onclick = function() {
+       btn.onclick = function() { // 이름이 없어서 직접 호출 불가
+        // 이벤트 속성에 대입되는 function == 이벤트 핸들러
         document.getElementById("area2").innerHTML += "이벤트 핸들러를 통해 실행됨"
        }
+    </script>
+
+    <hr>
+    
+    <h2>함수의 매개변수</h2>
+    <!-- btn*8{실행확인} -->
+
+    <button onclick="test2('안녕하세요');">실행확인</button>
+    <button onclick="test2(10)">실행확인</button>
+    <button onclick="test2([1,2,3])">실행확인</button>
+    <button onclick="test2(true)">실행확인</button>
+
+    <br>
+    <!-- 정의해둔 매개변수 개수보다 더 많이 전달하는 거 가능! (오류안남!) 단, 초과된 전달값은 무시됨-->
+    <button onclick="test2(prompt('이름을 입력해주세요'));">실행확인</button>
+    <button onclick="test2('안녕하세요', '반갑습니다');">실행확인</button>
+    <button onclick="test2(10, true, '안녕')">실행확인</button>
+    <!-- 매개변수 개수보다 더 적게 전달하는 거 가능! 단, undefined로 현출됨-->
+    <button onclick="test2();">실행확인</button> 
+
+    <div id="area3" class="area"></div>
+    <script>
+        function test2(value){ // 매개변수 제시시 자료형 지정x, 선언구문 x => 변수명만
+            document.getElementById("area3").innerHTML = value; // value가 div안에 나옴
+        }
     </script>
 
 
 
 
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </body>
 </html>

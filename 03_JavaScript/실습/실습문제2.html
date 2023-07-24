@@ -8,7 +8,10 @@
     <style>
         div{border: 1px solid black;}
 
-        #colorBox, #colorBox_1{width: 100px; height: 100px; background-color: black;}
+        #colorBox, #colorBox_1{
+            width: 100px;
+            height: 100px;
+            background-color: black;}
     </style>
 </head>
 <body>
@@ -32,32 +35,30 @@
 
     <h2>2. 버튼에 따라 크기 조절이 가능하게 만들기</h2>
     <div id="colorBox_1"></div>
-    <button onclick="setSmall();">50x50</button>
-    <button onclick="setMedium();">원본(100x100)</button>
-    <button onclick="setLarge();">200x200</button>
+    <button onclick="setchange('s');">50x50</button>
+    <button onclick="setchange('m');">원본(100x100)</button>
+    <button onclick="setchange('l');">200x200</button>
 
     <script>
-        function setSmall() {
+        function setchange(value){
+            if(value == 's'){
             var divEl = document.getElementById("colorBox_1");
 
             divEl.style.width = "50px";
             divEl.style.height = "50px";
-        }
-
-        function setMedium() {
+            } else if (value == 'm'){
             var divEl = document.getElementById("colorBox_1");
 
             divEl.style.width = "100px";
             divEl.style.height = "100px";
-        }
-
-        function setLarge() {
+            }
+            else{
             var divEl = document.getElementById("colorBox_1");
 
             divEl.style.width = "200px";
             divEl.style.height = "200px";;
+            }
         }
-
     </script>
 
 </body>
