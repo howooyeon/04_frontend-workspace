@@ -8,7 +8,6 @@
         .area{
             border: 1px solid black;
             width: 300px; height: 100px;
-
         }
     </style>
 </head>
@@ -39,11 +38,11 @@
             // document.write("<b>안녕하세요</b><br><h2>반가워</h2>")
             // 출력할 문구에 html 태그가 있을 경우 해석해서 시각적인 요소로 보여짐
 
-            var a = "<table border='1'>";
+            var a = "<table border = '1'>";
             a += "<tr>";
             a += "<td>1</td>";
             a += "<td>2</td>";
-            a+= "</tr></table>";
+            a += "</tr></table>";
 
             document.write(a);
         }
@@ -52,6 +51,7 @@
 
      <h3>4) 선택한 요소.innerHTML | innerText = "해당 요소에 출력할 문구";</h3>
      <div class="area" id="area1">
+        <!-- #area1.area -->
         자바스크립트에서 어떤 요소(elements)안의 값(content)을 가지고 온다거나
         변경하고자 할 때 <b>innerHTML, innerText</b> 라는 속성에 접근
      </div>
@@ -153,12 +153,11 @@
      <button onclick="testPrompt2();">숫자입력</button>
      <ul id="area4">
 
-     </ul>
-     <script>
+    </ul>
+    <script>
         function testPrompt2(){
-            var num = prompt("숫자만을 입력하세요")
-
             // num 개수만큼 반복문 돌려서 li 만들어줄 거임
+            var num = prompt("숫자만을 입력하세요")
 
             /* 자바
             for(int i = 0; i <=num; i++){

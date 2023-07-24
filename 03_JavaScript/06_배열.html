@@ -83,7 +83,11 @@
             // 배열 선언과 동시에 초기화
 
             const arr4 = new Array("문동은", "이사라", "박연진");
-            const arr5 = ["java", "oracle", "front"]; // 이상함
+            const arr5 = ["java", "oracle", "front"];
+
+            console.log(arr4);
+            console.log(arr5);
+
         }
     </script>
 
@@ -139,7 +143,6 @@
             const arr1 = ["사과", "딸기"];
             const arr2 = ["자동차", "비행기", "오토바이"];
 
-
             area3.innerHTML = "arr1 : " + arr1 + "<br>";
             area3.innerHTML += "arr2 : " + arr2 + "<br>";
             
@@ -149,13 +152,12 @@
             // 두개의 배열을 합쳐서 새로운 배열로 반환
 
             area3.innerHTML += "arr2 기준으로 배열 합침 : " + arr2.concat(arr1, [1,2,3]);
-
          }
     </script>
 
     <hr>
 
-    <h4>3) 배열.reverse() : 배열에 담긴 값들을 역수능로 바꿔주는 메소드</h4>
+    <h4>3) 배열.reverse() : 배열에 담긴 값들을 역순으로 바꿔주는 메소드</h4>
 
     <div id="area4" class="area small"></div>
     <button onclick="reverseTest();">확인하기</button>
