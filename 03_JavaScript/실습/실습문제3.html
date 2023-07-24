@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습문제3</title>
+</head>
+<body>
+    <h3>HTML 태그에 접근 테스트</h3>
+    단, 구매자는 태그 이름으로 접근, 상품명은 아이디로 접근, 구매가격은 name값으로 접근할 것
+    <br><br>
+    구매자 : <input type="text" id="buyer" placeholder="구매자의 이름을 입력하세요"><br><br>
+    상품명 : <input type="text" id="product" placeholder="구매 상품명을 입력하세요"><br><br>
+    가격 : <input type="text" id="price" placeholder="구매 가격을 입력하세요"><br><br>
+
+    <button onclick="testInput();">입력값 출력하기</button><br><br>
+    <input type="text" style="background-color: bisque" id="area">
+
+
+    <script>
+    function testInput(){
+        var input1 = document.getElementById("buyer")
+        var input2 = document.getElementById("product")
+        var input3 = document.getElementById("price")
+
+        console.log(input1.value)
+        console.log(input2.value)
+        console.log(input3.value)
+
+        var buyer = input1.value
+        var product = input2.value
+        var price = input3.value
+
+        // document.getElementById("area").value =  "구입자 : " + buyer
+        // document.getElementById("area").value += "구입상품 : " + product
+        // document.getElementById("area").value += "구매가격 : " + price
+        
+        document.getElementById("area").value = buyer + ", " + product + ", " + price;
+
+    }
+    </script>
+</body>
+</html>
