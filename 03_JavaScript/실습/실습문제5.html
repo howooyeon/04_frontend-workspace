@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>간이 계산기 만들기</title>
+</head>
+<body>
+    <h1>간이 계산기 만들기</h1>
+
+    첫번째 값 : <input type="text" id="value1"> <br>
+    두번째 값 : <input type="text" id="value2">
+    <br>
+    <button onclick="calculate(plus);">+</button>
+    <button onclick="calculate(minus);">-</button>
+    <button onclick="calculate(multiply);">x</button>
+    <button onclick="calculate(divide);">/</button>
+    <button onclick="calculate(proportion);">%</button>
+
+    <br><br>
+    <p id="result"></p>
+
+    <script>
+        function getValue1() {
+            return parseFloat(document.getElementById("value1").value);
+        }
+
+        function getValue2() {
+            return parseFloat(document.getElementById("value2").value);
+        }
+
+        function calculate(operation) {
+            const result = operation();
+            displayResult(result);
+        }
+
+        function plus() {
+            return getValue1() + getValue2();
+        }
+
+        function minus() {
+            return getValue1() - getValue2();
+        }
+
+        function multiply() {
+            return getValue1() * getValue2();
+        }
+
+        function divide() {
+            const value2 = getValue2();
+            if (value2 === 0) {
+                return "Error: 0으로 나눌 수 없습니다";
+            }
+            return getValue1() / value2;
+        }
+
+        function proportion() {
+            return getValue1() % getValue2();
+        }
+
+        function displayResult(result) {
+            document.getElementById("result").innerHTML = "계산 결과: <br>" + result;
+        }
+    </script>
+</body>
+</html>

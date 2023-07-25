@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습문제 6</title>
+</head>
+<body>
+    <h1>배열 연습 문제 1</h1>
+    <fieldset>
+        <legend>보기</legend>
+        사과, 바나나, 당근 <br>
+        김밥, 치즈, 떡볶이, 햄버거<br>
+        환타, 사이다, 콜라 <br>
+        고양이, 개
+    </fieldset>
+    <br>
+
+    <input type="text" id="foodInput"> <br>
+    <button onclick="indexOfSearch()">입력값 보내기</button>
+
+    <script>
+        function indexOfSearch() {
+            const arr = ["사과", "바나나", "당근", "김밥", "치즈", "떡볶이", "햄버거", "환타", "사이다", "콜라", "고양이", "개"];
+            const food = document.getElementById("foodInput").value;
+
+            // 배열을 순회하며 입력값의 등장 횟수를 세기 위한 변수
+            let count = 0;
+            let foundAtIndex = -1; // 입력값이 발견된 인덱스를 저장하기 위한 변수
+
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] === food) {
+                    count++;
+                    foundAtIndex = i; // 입력값이 발견된 인덱스를 저장
+                }
+            }
+
+            if (count === 0) {
+                confirm(food + "은(는) 배열에 존재하지 않습니다.");
+            } else {
+                confirm(food + "은(는) 배열의 " + foundAtIndex + "번째 인덱스에 존재합니다.");
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습문제7</title>
+</head>
+<body>
+    
+    <fieldset>
+        <legend>보기</legend>
+        <div>
+            r b <br>
+            e v o l
+        </div>
+    </fieldset>
+
+    <input type="text" id="text">
+    <button onclick="reverse();">처리</button>
+
+    <script>
+        function reverse() {
+            const inputText = document.getElementById("text").value;
+            const reversedText = reverseString(inputText);
+            const resultDiv = document.querySelector("fieldset div");
+            resultDiv.innerHTML = reversedText;
+        }
+
+        function reverseString(str) {
+            return str.split('').reverse().join('');
+        }
+    </script>
+
+</body>
+</html>
