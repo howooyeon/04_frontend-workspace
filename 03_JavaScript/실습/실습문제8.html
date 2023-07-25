@@ -1,11 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>실습문제8</title>
+    <title>연습문제 8</title>
 </head>
 <body>
-    
+    <h1>배열 연습 문제 3</h1>
+    <fieldset>
+        <legend>입력</legend>
+        <input type="text" id="1st">
+        <button onclick="input()">입력</button>
+    </fieldset>
+
+    <input type="text" id="area">
+
+    <script>
+        const inputs = []; // 연속적으로 입력된 값들을 저장할 배열
+
+        function input() {
+            const inputElement = document.getElementById("1st");
+            const inputValue = inputElement.value.trim();
+
+            if (inputValue !== "") {
+                inputs.push(inputValue);
+                inputElement.value = "";
+            }
+
+            displayInputs();
+        }
+
+        function displayInputs() {
+            const areaElement = document.getElementById("area");
+            areaElement.value = inputs.join(", ");
+        }
+    </script>
 </body>
 </html>

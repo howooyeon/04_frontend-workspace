@@ -9,21 +9,28 @@
     
     <fieldset>
         <legend>보기</legend>
-        <div>
-            r b <br>
-            e v o l
-        </div>
+        <div id="1st">r b</div>
+        <div id="2st">e v o l</div>
     </fieldset>
 
     <input type="text" id="text">
-    <button onclick="reverse();">처리</button>
+    <button onclick="reverseAndCombine();">처리</button>
 
     <script>
-        function reverse() {
-            const inputText = document.getElementById("text").value;
-            const reversedText = reverseString(inputText);
-            const resultDiv = document.querySelector("fieldset div");
-            resultDiv.innerHTML = reversedText;
+        function reverseAndCombine() {
+            const firstDiv = document.getElementById("1st");
+            const secondDiv = document.getElementById("2st");
+
+            const firstText = firstDiv.textContent.trim();
+            const secondText = secondDiv.textContent.trim();
+
+            const reversedFirstText = reverseString(firstText);
+            const reversedSecondText = reverseString(secondText);
+
+            const combinedText = reversedFirstText + " " + reversedSecondText;
+
+            // Display the combined text on the input text side
+            document.getElementById("text").value = combinedText;
         }
 
         function reverseString(str) {
