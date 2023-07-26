@@ -12,9 +12,31 @@
         <div>피자 치킨 햄버거 떡볶이</div>
     </fieldset>
 
-    <input type="text" placeholder="삭제할 음식이름을 입력하세요">
-    <input type="text" placeholder="추가할 음식이름을 입력하세요">
+    <input type="text" id="input1" placeholder="삭제할 음식이름을 입력하세요">
+    <input type="text" id="input2" placeholder="추가할 음식이름을 입력하세요">
+    <br>
 
-    <input type="text">
+    <div id="area"></div>
+    <br>
+    <button onclick="output();">처리 및 출력</button>
+    <script>
+        function output(){
+            const result = document.getElementById("area1")
+
+            const arr = ["피자","치킨","당근","햄버거","떡볶이"]
+            const input1 = document.getElementById("input1").value
+            const input2 = document.getElementById("input2").value
+
+            for(let i in arr){
+                if(arr[i] == input1){
+                    arr.splice(i, 1, input2)
+                }
+            } 
+            
+            area.innerHTML += arr
+        }
+    </script>
+
+
 </body>
-</html>
+</html> 
