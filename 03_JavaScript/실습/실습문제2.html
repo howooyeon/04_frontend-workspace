@@ -8,7 +8,7 @@
     <style>
         div{border: 1px solid black;}
 
-        #colorBox, #colorBox_1{
+        #colorBox, #colorBox2{
             width: 100px;
             height: 100px;
             background-color: black;}
@@ -17,7 +17,7 @@
 <body>
     <h2>1. 색상 선택 후 변경 버튼을 클릭하면 색상이 변경되도록 만들어 보시오</h2>
     <div id="colorBox"></div>
-    <input type="color" id="inputColor">
+    <input type="color" id="inputColor"> <!-- input type = color Choose your colors -->
     <button onclick="setColor();">변경</button>
 
     <script>
@@ -26,6 +26,8 @@
 
             var inputColor = document.getElementById("inputColor");
             var color = inputColor.value;
+            // 색상 입력 요소를 사용하여 사용자가 선택한 색상의 값을 검색합니다.
+            // 값은 16진수 색상 코드(예: "#RRGGBB" 형식)
 
             divEl.style.backgroundColor = color;
         }
@@ -34,7 +36,7 @@
     <hr>
 
     <h2>2. 버튼에 따라 크기 조절이 가능하게 만들기</h2>
-    <div id="colorBox_1"></div>
+    <div id="colorBox2"></div>
     <button onclick="setchange('s');">50x50</button>
     <button onclick="setchange('m');">원본(100x100)</button>
     <button onclick="setchange('l');">200x200</button>
@@ -42,18 +44,18 @@
     <script>
         function setchange(value){
             if(value == 's'){
-            var divEl = document.getElementById("colorBox_1");
+            var divEl = document.getElementById("colorBox2");
             divEl.style.width = "50px";
             divEl.style.height = "50px";
 
             } else if (value == 'm'){
-            var divEl = document.getElementById("colorBox_1");
+            var divEl = document.getElementById("colorBox2");
             divEl.style.width = "100px";
             divEl.style.height = "100px";
             }
 
             else{
-            var divEl = document.getElementById("colorBox_1");
+            var divEl = document.getElementById("colorBox2");
             divEl.style.width = "200px";
             divEl.style.height = "200px";;
             }
