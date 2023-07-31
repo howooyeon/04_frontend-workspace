@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <form action="test.do" method="get">
+        아이디 : 
+        <input type="text" name="userId" id="userId"> <br>
+        패스워드 : 
+        <input type="password" name="userPwd" id="userPwd"> <br>
+        패스워드 확인 : 
+        <input type="password" id="checkPwd"> <br><br> <!-- 얜 굳이 서버로 안 넘겨도 됨. name 안써도됨. -->
+        *이메일 :
+            <input type="email" name="email" id="email"> <br>
+    
+        <input type="submit" onclick="return Validate();">
+        <!-- 기본이벤트 수행하기 전에 비번, 비번확인 맞는건지 확인 후 전송 -->
+    </form>
+    
+    <script>
+        function Validate(){
+            const userPwd = document.getElementById("userPwd").value // input값 가져올 수 있음
+            const checkPwd = document.getElementById("checkPwd").value
+            const userId = document.getElementById("userId").value
+    
+            // 아이디에 대한 유효성 검사
+            // 영문자 또는 숫자로만 5글자에서 12글자 이하가 맞는지
+            // 맞지 않을 경우
+            // 알람창 출력 => 제출 불가하게끔 기본이벤트 막기
+    
+            if(userId.length >= 5 && userId.length <= 12){ // 글자수가 맞았을 경우
+    
+                // 각각의 문자들이 영문 또는 숫자로만 이뤄져있는지 체크
+                for(let i = 0; i<userId.length; i++){
+                    if((userId.charAt(i) >= 0 && userId.charAt(i) < 10)
+                    || (userId.charAt(i) >= 'a' && userId.charAt(i) <= 'z')
+                    || (userId.charAt(i) >= 'A' && userId.charAt(i) <= 'Z')){
+                
+                } else{
+                    alert("유효한 아이디의 형식이 아닙니다");
+                    return false;
+                }
+                }
+    
+            }else{ // 글자수가 틀렸을 경우
+                alert("유효한 아이디의 형식이 아닙니다");
+                return false;
+    
+            }
+        }
+    </script>
+</body>
+</html>
