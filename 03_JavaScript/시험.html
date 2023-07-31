@@ -4,22 +4,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #area1{
+            width: 500px;
+            height: 500px;
+            background-color: lightcyan;
+            border: 2px solid lightblue;
+        }
+        .area small{
+            background-color: whitesmoke;
+        }
+        input{
+            background-color: whitesmoke;
+            border: 2px dashed black;
+        }
+        .bottom-border {
+        border-width: 0 0 1.4px;
+        }
+        table{
+            background-color: whitesmoke;
+            font-weight: bold;
+            border:2px solid lightgray;
+            margin-left:auto;
+            margin-right:auto;
+        }
+        #enroll{
+            text-align: center;
+            border: none;
+        }
+    </style>
 </head>
 <body>
-    
     <form action="test.do" method="get">
-        아이디 : 
-        <input type="text" name="userId" id="userId"> <br>
-        패스워드 : 
-        <input type="password" name="userPwd" id="userPwd"> <br>
-        패스워드 확인 : 
-        <input type="password" id="checkPwd"> <br><br> <!-- 얜 굳이 서버로 안 넘겨도 됨. name 안써도됨. -->
-        *이메일 :
-            <input type="email" name="email" id="email"> <br>
-    
-        <input type="submit" onclick="return Validate();">
-        <!-- 기본이벤트 수행하기 전에 비번, 비번확인 맞는건지 확인 후 전송 -->
+        <div id="area1" class="area big">
+            <!-- <div id="area2" class="area small"> -->
+        <table>
+            <tr>
+                <td>아이디</td>
+                <td><input type="text" name="userId" id="userId" class="bottom-border"></td>
+            </tr>
+            <tr>
+                <td>패스워드</td>
+                <td><input type="password" name="userPwd" id="userPwd" class="bottom-border"></td>
+            </tr>
+            <tr>
+                <td>패스워드 확인</td>
+                <td><input type="password" id="checkPwd" class='bottom-border'></td>
+            </tr>
+            <tr>
+                <td>이메일</td>
+                <td><input type="email" name="email" id="email"class='bottom-border'></td>
+            </tr>
+
+            <tr>
+                <td>주소</td>
+                <td><input type="text" name="address" id="address" class='bottom-border'></td>
+            </tr>
+
+            <tr>
+                <td><input type="text" style="border: none;"></td>
+            </tr>
+
+            <tr>
+                <td><input type="submit" id="enroll" value="가입" onclick="return Validate();"></td>
+            </tr>
+
+            <tr>
+                <td><input type="text" style="border: none;"></td>
+            </tr>
+        </div>
+    </table>
+        
     </form>
+
+</div>
     
     <script>
         function Validate(){
