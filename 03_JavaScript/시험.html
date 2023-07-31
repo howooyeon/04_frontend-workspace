@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
+        <style>
         #area1{
             width: 500px;
             height: 500px;
@@ -15,100 +12,116 @@
             background-color: whitesmoke;
         }
         input{
+            width: 90%;
             background-color: whitesmoke;
             border: 2px dashed black;
         }
         .bottom-border {
-        border-width: 0 0 1.4px;
+        border-width: 0 0 1.2px;
         }
         table{
+            width: 400px;
+            height: 280px;
             background-color: whitesmoke;
-            font-weight: bold;
+            font-weight: 545;
             border:2px solid lightgray;
+            margin-top: 100px;
             margin-left:auto;
             margin-right:auto;
         }
+        table td{
+            padding-left: 10px;
+        }
         #enroll{
+            width: 90%;
+            height: 95%;
             text-align: center;
             border: none;
+            font-weight: 545;
         }
     </style>
 </head>
 <body>
-    <form action="test.do" method="get">
+    <form action="test.do" method="get" onsubmit="return validateForm()">
         <div id="area1" class="area big">
-            <!-- <div id="area2" class="area small"> -->
-        <table>
-            <tr>
-                <td>아이디</td>
-                <td><input type="text" name="userId" id="userId" class="bottom-border"></td>
-            </tr>
-            <tr>
-                <td>패스워드</td>
-                <td><input type="password" name="userPwd" id="userPwd" class="bottom-border"></td>
-            </tr>
-            <tr>
-                <td>패스워드 확인</td>
-                <td><input type="password" id="checkPwd" class='bottom-border'></td>
-            </tr>
-            <tr>
-                <td>이메일</td>
-                <td><input type="email" name="email" id="email"class='bottom-border'></td>
-            </tr>
-
-            <tr>
-                <td>주소</td>
-                <td><input type="text" name="address" id="address" class='bottom-border'></td>
-            </tr>
-
-            <tr>
-                <td><input type="text" style="border: none;"></td>
-            </tr>
-
-            <tr>
-                <td><input type="submit" id="enroll" value="가입" onclick="return Validate();"></td>
-            </tr>
-
-            <tr>
-                <td><input type="text" style="border: none;"></td>
-            </tr>
+            <table>
+                <tr>
+                    <td>아이디</td>
+                    <td><input type="text" name="userId" id="userId" class="bottom-border" required></td>
+                </tr>
+                <tr>
+                    <td>패스워드</td>
+                    <td><input type="password" name="userPwd" id="userPwd" class="bottom-border" required onfocus="showPasswordRequirementsMessage()"></td>
+                </tr>
+                <tr>
+                    <td>패스워드 확인</td>
+                    <td><input type="password" id="checkPwd" class='bottom-border' required onfocus="showPasswordRequirementsMessage()"></td>
+                </tr>
+                <tr>
+                    <td>이메일</td>
+                    <td><input type="email" name="email" id="email"class='bottom-border' required></td>
+                </tr>
+                <tr>
+                    <td>주소</td>
+                    <td><input type="text" name="address" id="address" class='bottom-border' required></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="text" name="address" id="address" class='bottom-border' required></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center">
+                        <input type="submit" id="enroll" value="가입" style="background-color: rgba(169, 219, 169, 0.727)"></td>
+                </tr>
+            </table>
         </div>
-    </table>
-        
     </form>
-
-</div>
+    
     
     <script>
-        function Validate(){
-            const userPwd = document.getElementById("userPwd").value // input값 가져올 수 있음
-            const checkPwd = document.getElementById("checkPwd").value
-            const userId = document.getElementById("userId").value
-    
-            // 아이디에 대한 유효성 검사
-            // 영문자 또는 숫자로만 5글자에서 12글자 이하가 맞는지
-            // 맞지 않을 경우
-            // 알람창 출력 => 제출 불가하게끔 기본이벤트 막기
-    
-            if(userId.length >= 5 && userId.length <= 12){ // 글자수가 맞았을 경우
-    
-                // 각각의 문자들이 영문 또는 숫자로만 이뤄져있는지 체크
-                for(let i = 0; i<userId.length; i++){
-                    if((userId.charAt(i) >= 0 && userId.charAt(i) < 10)
-                    || (userId.charAt(i) >= 'a' && userId.charAt(i) <= 'z')
-                    || (userId.charAt(i) >= 'A' && userId.charAt(i) <= 'Z')){
-                
-                } else{
-                    alert("유효한 아이디의 형식이 아닙니다");
+        function validateForm() {
+            const userId = document.getElementById("userId").value;
+            const userPwd = document.getElementById("userPwd").value;
+            const checkPwd = document.getElementById("checkPwd").value;
+
+            // 아이디 유효성 검사
+            if (userId.length < 5 || userId.length > 12) {
+                alert("유효한 아이디의 형식이 아닙니다. 5~12자의 영문자 또는 숫자로만 입력하세요.");
+                return false;
+            }
+
+            for (let i = 0; i < userId.length; i++) {
+                if (!(userId.charAt(i) >= '0' && userId.charAt(i) <= '9')
+                    && !(userId.charAt(i) >= 'a' && userId.charAt(i) <= 'z')
+                    && !(userId.charAt(i) >= 'A' && userId.charAt(i) <= 'Z')) {
+                    alert("유효한 아이디의 형식이 아닙니다. 5~12자의 영문자 또는 숫자로만 입력하세요.");
                     return false;
                 }
-                }
-    
-            }else{ // 글자수가 틀렸을 경우
-                alert("유효한 아이디의 형식이 아닙니다");
-                return false;
-    
             }
+
+            // 패스워드 유효성 검사
+            if (userPwd.length < 8 || userPwd.length > 32) {
+                alert("비밀번호는 8~32자 이내로 입력해주세요.");
+                return false;
+            }
+
+            // 암호와 암호 확인이 일치하는지 확인
+            if (userPwd !== checkPwd) {
+                alert("암호와 암호 확인이 일치하지 않습니다.");
+                return false;
+            }
+
+            return true;
+        }
+
+        function showPasswordRequirementsMessage() {
+            const passwordRequirementsMessage = document.getElementById('password-requirements-message');
+            passwordRequirementsMessage.textContent = 'Password must be 8 to 32 characters and include uppercase and lowercase letters, special characters, and numbers.';
+        }
+
+        function showPasswordRequirementsMessage() {
+            const passwordRequirementsMessage = document.getElementById('password-requirements-message');
+            passwordRequirementsMessage.textContent = 'Password must be 8 to 32 characters and include uppercase and lowercase letters, special characters, and numbers.';
         }
     </script>
 </body>
