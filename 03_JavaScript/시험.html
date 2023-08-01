@@ -73,7 +73,7 @@
                     </tr>
                     <tr>
                         <td>패스워드 확인</td>
-                        <td><input type="password" id="checkPwd" class="bottom-border"
+                        <td><input type="password" name="checkPwd" id="checkPwd" class="bottom-border"
                             required onclick="firstClick">
                         <div id="focusPwdCheck" class="message"></div>
                         </td>
@@ -118,20 +118,20 @@
 
             function thirdClick(){
             const userId=document.getElementById("userId");
-            const password2=document.getElementById("password2");
+            const checkPwd=document.getElementById("checkPwd");
             
             for(let i=0; i<message.length; i++){
-                msg[i].innerHTML = "";
+                message[i].innerHTML = "";
             }
         
             if(userId.value==""){
-                document.getElementById("userId").innerHTML = "필수 입력 항목 입니다.";
+                document.getElementById("focusId").innerHTML = "필수 입력 항목 입니다.";
             }
             if(userPwd.value==""){
-                document.getElementById("userPwd").innerHTML = "필수 입력 항목 입니다.";
+                document.getElementById("focusPwd").innerHTML = "필수 입력 항목 입니다.";
             }
             if(checkPwd.value==""){
-                document.getElementById("checkPwd").innerHTML = "필수 입력 항목 입니다.";
+                document.getElementById("focusPwdCheck").innerHTML = "필수 입력 항목 입니다.";
             }
             
         }
