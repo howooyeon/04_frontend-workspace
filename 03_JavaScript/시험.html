@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <style>
-        #area1{
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <title>Document</title>
+    <style>
+        #area{
             width: 500px;
             height: 500px;
             background-color: lightcyan;
             border: 2px solid lightblue;
         }
-        .area small{
-            background-color: whitesmoke;
-        }
+
         input{
             width: 90%;
             background-color: whitesmoke;
@@ -39,90 +41,102 @@
             border: none;
             font-weight: 545;
         }
+        .message{
+            font-size: 10px;
+            color: lightslategray;
+            text-align: center;
+            margin-right: 20px;
+        }
+        #emailForm input{
+            width: 113px;
+        }
+
     </style>
 </head>
-<body>
-    <form action="test.do" method="get" onsubmit="return validateForm()">
-        <div id="area1" class="area big">
-            <table>
-                <tr>
-                    <td>아이디</td>
-                    <td><input type="text" name="userId" id="userId" class="bottom-border" required></td>
-                </tr>
-                <tr>
-                    <td>패스워드</td>
-                    <td><input type="password" name="userPwd" id="userPwd" class="bottom-border" required onfocus="showPasswordRequirementsMessage()"></td>
-                </tr>
-                <tr>
-                    <td>패스워드 확인</td>
-                    <td><input type="password" id="checkPwd" class='bottom-border' required onfocus="showPasswordRequirementsMessage()"></td>
-                </tr>
-                <tr>
-                    <td>이메일</td>
-                    <td><input type="email" name="email" id="email"class='bottom-border' required></td>
-                </tr>
-                <tr>
-                    <td>주소</td>
-                    <td><input type="text" name="address" id="address" class='bottom-border' required></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td><input type="text" name="address" id="address" class='bottom-border' required></td>
-                </tr>
-                <tr>
-                    <td colspan="2" align="center">
-                        <input type="submit" id="enroll" value="가입" style="background-color: rgba(169, 219, 169, 0.727)"></td>
-                </tr>
-            </table>
-        </div>
-    </form>
-    
-    
-    <script>
-        function validateForm() {
-            const userId = document.getElementById("userId").value;
-            const userPwd = document.getElementById("userPwd").value;
-            const checkPwd = document.getElementById("checkPwd").value;
+    <body>
+        <form action="test.do" method="get" onsubmit="return validateForm()">
+            <div id="area" class="area big">
+                <table>
+                    <tr>
+                        <td>아이디</td>
+                        <td><input type="text" name="userId" id="userId" class="bottom-border"
+                            required onclick="firstClick">
+                        <div id="focusId" class="message"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>패스워드</td>
+                        <td><input type="password" name="userPwd" id="userPwd" class="bottom-border"
+                            required onclick="secondClick();">
+                        <div id="focusPwd" class="message"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>패스워드 확인</td>
+                        <td><input type="password" id="checkPwd" class="bottom-border"
+                            required onclick="firstClick">
+                        <div id="focusPwdCheck" class="message"></div>
+                        </td>
+                    </tr>
+                    <tr id="emailForm">
+                        <td>이메일</td>
+                        <td>
+                            <div><input type="text" id="email1" name="email" class="bottom-border" onclick="thirdClick();">@
+                            <input type="text" id="email1" name="email" class="bottom-border"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>주소</td>
+                        <td><input type="text" name="address" id="address" class='bottom-border' required></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="text" name="address" id="address" class='bottom-border' required></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="center">
+                            <input type="submit" id="enroll" value="가입" style="background-color: rgba(169, 219, 169, 0.727)"></td>
+                    </tr>
+                </table>
+            </div>
+        </form>
 
-            // 아이디 유효성 검사
-            if (userId.length < 5 || userId.length > 12) {
-                alert("유효한 아이디의 형식이 아닙니다. 5~12자의 영문자 또는 숫자로만 입력하세요.");
-                return false;
-            }
+        <script>
+            const message = document.getElementsByClassName("message")
+            // console.dir(messsage)
 
-            for (let i = 0; i < userId.length; i++) {
-                if (!(userId.charAt(i) >= '0' && userId.charAt(i) <= '9')
-                    && !(userId.charAt(i) >= 'a' && userId.charAt(i) <= 'z')
-                    && !(userId.charAt(i) >= 'A' && userId.charAt(i) <= 'Z')) {
-                    alert("유효한 아이디의 형식이 아닙니다. 5~12자의 영문자 또는 숫자로만 입력하세요.");
-                    return false;
+            function firstClick(){
+                for(let i = 0; i< message.length; i++){
+                    message[i].innerHTML = "";
                 }
             }
 
-            // 패스워드 유효성 검사
-            if (userPwd.length < 8 || userPwd.length > 32) {
-                alert("비밀번호는 8~32자 이내로 입력해주세요.");
-                return false;
+            function secondClick(){
+                message.innerHTML = "";
+                document.getElementById("focusPwd").innerHTML = "영문자 대/소문자 특수문자, 숫자 포함 8~32자"
             }
 
-            // 암호와 암호 확인이 일치하는지 확인
-            if (userPwd !== checkPwd) {
-                alert("암호와 암호 확인이 일치하지 않습니다.");
-                return false;
+            function thirdClick(){
+            const userId=document.getElementById("userId");
+            const password2=document.getElementById("password2");
+            
+            for(let i=0; i<message.length; i++){
+                msg[i].innerHTML = "";
             }
-
-            return true;
+        
+            if(userId.value==""){
+                document.getElementById("userId").innerHTML = "필수 입력 항목 입니다.";
+            }
+            if(userPwd.value==""){
+                document.getElementById("userPwd").innerHTML = "필수 입력 항목 입니다.";
+            }
+            if(checkPwd.value==""){
+                document.getElementById("checkPwd").innerHTML = "필수 입력 항목 입니다.";
+            }
+            
         }
 
-        function showPasswordRequirementsMessage() {
-            const passwordRequirementsMessage = document.getElementById('password-requirements-message');
-            passwordRequirementsMessage.textContent = 'Password must be 8 to 32 characters and include uppercase and lowercase letters, special characters, and numbers.';
-        }
-
-        function showPasswordRequirementsMessage() {
-            const passwordRequirementsMessage = document.getElementById('password-requirements-message');
-            passwordRequirementsMessage.textContent = 'Password must be 8 to 32 characters and include uppercase and lowercase letters, special characters, and numbers.';
-        }
-    </script>
-</body>
+        </script>
+        
+    </body>
 </html>
