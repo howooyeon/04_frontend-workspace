@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
     <title>Document</title>
     <style>
         div{
@@ -56,13 +57,11 @@
                     // 기존꺼는 닫히면서
                     $(this).siblings("p").slideUp(); // div랑 형제를 이루는 p들은 전부 닫는다
 
-
-
                     // 지금꺼는 열리게
                     // $p.css("display","block");
                     $p.slideDown();
 
-                }else { // 보이는 상태
+                }else { // 보이는 상태s
 
                     // 안보여지게끔
                     $p.slideUp();
